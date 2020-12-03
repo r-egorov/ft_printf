@@ -16,7 +16,7 @@ D_FILES			=	$(patsubst %.c,%.d,$(SRCS))
 CCFLAGS			=	-Wall -Wextra -Werror
 
 .c.o:				
-					@ gcc $(CCFLAGS) -c $< -I $(INCLUDES) -o $(<:.c=.o) -MD
+					gcc $(CCFLAGS) -c $< -I $(INCLUDES) -o $(<:.c=.o) -MD
 
 include	$(wildcard $(D_FILES))
 
