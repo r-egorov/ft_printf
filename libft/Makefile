@@ -19,9 +19,7 @@ SRCS			=	$(SRCSDIR)ft_strlen.c		$(SRCSDIR)ft_memset.c  \
 					$(SRCSDIR)ft_strjoin.c		$(SRCSDIR)ft_strtrim.c \
 					$(SRCSDIR)ft_itoa.c			$(SRCSDIR)ft_strmapi.c \
 					$(SRCSDIR)ft_putchar_fd.c	$(SRCSDIR)ft_putstr_fd.c \
-					$(SRCSDIR)ft_putendl_fd.c	$(SRCSDIR)ft_putnbr_fd.c
-
-SRCS_BONUS		=	$(SRCS) \
+					$(SRCSDIR)ft_putendl_fd.c	$(SRCSDIR)ft_putnbr_fd.c \
 					$(SRCSDIR)ft_lstnew.c		$(SRCSDIR)ft_lstadd_front.c \
 					$(SRCSDIR)ft_lstsize.c		$(SRCSDIR)ft_lstlast.c \
 					$(SRCSDIR)ft_lstadd_back.c	$(SRCSDIR)ft_lstdelone.c \
@@ -29,9 +27,8 @@ SRCS_BONUS		=	$(SRCS) \
 					$(SRCSDIR)ft_lstmap.c
 
 OBJS			=	$(patsubst %.c,%.o,$(SRCS))
-OBJS_BONUS		=	$(patsubst %.c,%.o,$(SRCS_BONUS))
 
-D_FILES			=	$(patsubst %.c,%.d,$(SRCS) $(SRCS_BONUS))
+D_FILES			=	$(patsubst %.c,%.d,$(SRCS)) 
 
 CCFLAGS			=	-Wall -Wextra -Werror
 
@@ -46,15 +43,12 @@ all:				$(NAME)
 $(NAME):			$(OBJS)
 					@ ar rcs $(NAME) $?
 
-bonus:				$(OBJS_BONUS)
-					@ ar rcs $(NAME) $?
-
 clean:				
-					@ rm -f $(OBJS) $(OBJS_BONUS) $(D_FILES)
+					@ rm -f $(OBJS) $(D_FILES)
 
 fclean:				clean
 					@ rm -f $(NAME)
 
 re:					fclean all
 
-.PHONY:				all clean fclean re bonus
+.PHONY:				all clean fclean re 

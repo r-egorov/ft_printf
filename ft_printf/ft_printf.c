@@ -6,7 +6,7 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 13:44:40 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/03 18:06:50 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/04 14:50:04 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,19 @@ int		ft_printf(const char *format, ...)
 	t_parsed	format_info;
 	int			num_printed;
 
+	num_printed = 0;
 	va_start(argptr, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format_info = ft_parse_format(++format, &argptr);
-			if (ft_process_format(format_info, &argptr) == -1)
+			if (ft_process_format(format_info, &argptr, &num_printed) == -1)
 				break ;
 			format = format + (format_info.length);
 		}
 		else
-			num_printed = ft_printchar_count(*format++);
+			ft_printchar_count(*format++, &num_printed);
 	}
 	va_end(argptr);
 	return (num_printed);
