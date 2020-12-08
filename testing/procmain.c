@@ -47,6 +47,31 @@ int		main(void)
 	printf("result(-) =\t%d\n", printf("|%0*.*s|\t", -10, 4, "string"));
 	printf("ft_result(-)\t= %d\n", ft_printf("|%0*.*s|\t", -10, 4, "string"));
 	printf("================\n");
+	int	*ptr = &result;
+	printf("TESTING POINTER (NO FLAG)\n");
+	printf("result =\t%d\n", printf("|%p|\t", ptr));
+	printf("ft_result\t= %d\n", ft_printf("|%p|\t", ptr));
+	printf("result =\t%d\n", printf("|%20p|\t", ptr));
+	printf("ft_result\t= %d\n", ft_printf("|%20p|\t", ptr));
+	printf("result =\t%d\n", printf("|%30.20p|\t", ptr));
+	printf("ft_result\t= %d\n", ft_printf("|%30.20p|\t", ptr));
+	printf("+--------------+\n");
+	printf("TESTING POINTER (MINUS FLAG)\n");
+	printf("result =\t%d\n", printf("|%-20p|\t", ptr));
+	printf("ft_result\t= %d\n", ft_printf("|%-20p|\t", ptr));
+	printf("result =\t%d\n", printf("|%-30p|\t", ptr));
+	printf("ft_result\t= %d\n", ft_printf("|%-30p|\t", ptr));
+	printf("result =\t%d\n", printf("|%-30.20p|\t", ptr));
+	printf("ft_result\t= %d\n", ft_printf("|%-30.20p|\t", ptr));
+	printf("+--------------+\n");
+	printf("TESTING POINTER (ZERO FLAG)\n");
+	printf("result =\t%d\n", printf("|%030p|\t", ptr));
+	printf("ft_result\t= %d\n", ft_printf("|%030p|\t", ptr));
+	printf("result =\t%d\n", printf("|%040.15p|\t", ptr));
+	printf("ft_result\t= %d\n", ft_printf("|%040.15p|\t", ptr));
+	printf("result =\t%d\n", printf("|%010.40p|\t", ptr));
+	printf("ft_result\t= %d\n", ft_printf("|%010.40p|\t", ptr));
+	printf("================\n");
 }
 
 

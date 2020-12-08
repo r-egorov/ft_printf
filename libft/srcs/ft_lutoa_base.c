@@ -6,30 +6,29 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 17:45:35 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/04 18:27:57 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/08 14:32:04 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h> //Fix
 
 static void	fill_the_tab(char **tab, int *remainders, const char *base,
 		int res_len)
 {
 	int					i;
+	char				*res;
 
-	printf("numlen = %d\n", res_len);
-	printf("first_n = %d\n", remainders[res_len - 1]);
+	res = *tab;
 	i = 0;
-	while (res_len >= 0)
+	while (--res_len >= 0)
 	{
-		*tab[i++] = base[remainders[--res_len]];
-		printf("tab[i] = %c\n", (char)tab[0]);
+		res[i] = base[remainders[res_len]];
+		i++;
 	}
-	*tab[i] = '\0';
+	res[i] = '\0';
 }
 
-char		*ft_itoa_base(unsigned long nbr, const char *base)
+char		*ft_lutoa_base(unsigned long nbr, const char *base)
 {
 	int					base_len;
 	int					remainders[64];
@@ -38,12 +37,13 @@ char		*ft_itoa_base(unsigned long nbr, const char *base)
 
 	if (nbr == 0)
 		return (ft_strdup("0"));
-	base_len = ft_strlen(base);	
+	base_len = ft_strlen(base);
 	i = 0;
 	while (nbr > 0)
 	{
-		remainders[i++] = nbr % base_len;
+		remainders[i] = nbr % base_len;
 		nbr = nbr / base_len;
+		i++;
 	}
 	if (!(res = (char*)malloc((i + 1) & sizeof(char))))
 		return (NULL);

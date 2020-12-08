@@ -13,6 +13,7 @@ PARSERSRCS		=	$(PARCERDIR)ft_parser.c	\
 			
 PROCESSORSRCS	=	$(PROCESSORDIR)ft_char_type.c \
 					$(PROCESSORDIR)ft_string_type.c \
+					$(PROCESSORDIR)ft_p_type.c \
 					$(PROCESSORDIR)ft_process_format.c \
 					$(PROCESSORDIR)ft_printed_count.c
 

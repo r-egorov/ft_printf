@@ -1,6 +1,6 @@
 NAME			=	libft.a
 
-INCLUDES		=	../includes
+INCLUDES		=	../includes/
 SRCSDIR			=	srcs/
 
 SRCS			=	$(SRCSDIR)ft_strlen.c		$(SRCSDIR)ft_memset.c  \
@@ -24,14 +24,13 @@ SRCS			=	$(SRCSDIR)ft_strlen.c		$(SRCSDIR)ft_memset.c  \
 					$(SRCSDIR)ft_lstsize.c		$(SRCSDIR)ft_lstlast.c \
 					$(SRCSDIR)ft_lstadd_back.c	$(SRCSDIR)ft_lstdelone.c \
 					$(SRCSDIR)ft_lstclear.c 	$(SRCSDIR)ft_lstiter.c \
-					$(SRCSDIR)ft_lstmap.c
+					$(SRCSDIR)ft_lstmap.c		$(SRCSDIR)ft_lutoa_base.c
 
 OBJS			=	$(patsubst %.c,%.o,$(SRCS))
 
-D_FILES			=	$(patsubst %.c,%.d,$(SRCS)) 
+D_FILES			=	$(patsubst %.c,%.d,$(SRCS))
 
 CCFLAGS			=	-Wall -Wextra -Werror
-
 
 .c.o:				
 					@ gcc $(CCFLAGS) -c $< -I $(INCLUDES) -o $(<:.c=.o) -MD
@@ -51,4 +50,4 @@ fclean:				clean
 
 re:					fclean all
 
-.PHONY:				all clean fclean re 
+.PHONY:				all clean fclean re
