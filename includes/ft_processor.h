@@ -6,7 +6,7 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:08:24 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/08 14:18:08 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/08 16:22:22 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_di_type(t_parsed format_info, va_list *argptr,
 		int *num_printed);
 void	ft_u_type(t_parsed format_info, va_list *argptr,
 		int *num_printed);
-void	ft_hex_type(t_parsed format_info, va_list *argptr,
+int		ft_hex_type(t_parsed format_info, va_list *argptr,
 		int *num_printed);
 void	ft_percent_type(t_parsed format_info, va_list *argptr,
 		int *num_printed);
