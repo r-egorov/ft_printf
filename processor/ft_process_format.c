@@ -6,7 +6,7 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:04:21 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/08 16:23:17 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/08 18:26:18 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int		ft_process_format(t_parsed format_info, va_list *argptr,
 		ft_string_type(format_info, argptr, num_printed);
 	if (format_info.type == 'p')
 		return (ft_p_type(format_info, argptr, num_printed));
-	/*if (format_info.type == 'd')
-		return (ft_di_type(format_info, argptr));
+	if (format_info.type == 'd')
+		ft_int_type(format_info, argptr, num_printed);
 	if (format_info.type == 'i')
-		return (ft_di_type(format_info, argptr));
-	if (format_info.type == 'u')
+		ft_int_type(format_info, argptr, num_printed);
+	/*if (format_info.type == 'u')
 		return (ft_u_type(format_info, argptr));*/
 	if (format_info.type == 'x')
 		return (ft_hex_type(format_info, argptr, num_printed));

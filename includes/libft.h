@@ -6,7 +6,7 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 13:31:06 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/08 14:32:52 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/08 17:33:23 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 char			*ft_lutoa_base(unsigned long nbr, const char *base);
+int				ft_nbrlen(long n);
 
 typedef struct	s_list
 {

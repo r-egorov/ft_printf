@@ -70,7 +70,7 @@ int		main(void)
 	printf("result =\t%d\n", printf("|%040.15p|\t", ptr));
 	printf("ft_result\t= %d\n", ft_printf("|%040.15p|\t", ptr));
 	printf("result =\t%d\n", printf("|%010.40p|\t", ptr));
-	printf("ft_result\t= %d\n", ft_printf("|%010.40p|\t", ptr));*/
+	printf("ft_result\t= %d\n", ft_printf("|%010.40p|\t", ptr));
 	printf("================\n");
 	printf("TESTING HEX (NO FLAG)\n");
 	printf("result\t\t= %d\n", printf("|%20x|\t", 4325));
@@ -101,5 +101,29 @@ int		main(void)
 	printf("ft_result\t= %d\n", ft_printf("|%-010x|\t", 4325));
 	printf("result\t\t= %d\n", printf("|%0-10.20x|\t", 4325));
 	printf("ft_result\t= %d\n", ft_printf("|%0-10.20x|\t", 4325));
+	printf("================\n");*/
+	printf("TESTING INT (NO FLAG)\n");
+	printf("result\t\t= %d\n", printf("|%20.15d|\t", 4325));
+	printf("ft_result\t= %d\n", ft_printf("|%20.15d|\t", 4325));
+	printf("result\t\t= %d\n", printf("|%20.10d|\t", -10500));
+	printf("ft_result\t= %d\n", ft_printf("|%20.10d|\t", -10500));
+	printf("result\t\t= %d\n", printf("|%20i|\t", -20945));
+	printf("ft_result\t= %d\n", ft_printf("|%20i|\t", -20945));
+	printf("+--------------+\n");
+	printf("TESTING INT (MINUS FLAG)\n");
+	printf("result\t\t= %d\n", printf("|%-20.15d|\t", 4325));
+	printf("ft_result\t= %d\n", ft_printf("|%-20.15d|\t", 4325));
+	printf("result\t\t= %d\n", printf("|%-20.10d|\t", -10500));
+	printf("ft_result\t= %d\n", ft_printf("|%-20.10d|\t", -10500));
+	printf("result\t\t= %d\n", printf("|%-20i|\t", -20945));
+	printf("ft_result\t= %d\n", ft_printf("|%-20i|\t", -20945));
+	printf("+--------------+\n");
+	printf("TESTING INT (ZERO FLAG)\n");
+	printf("result\t\t= %d\n", printf("|%020d|\t", 4325));
+	printf("ft_result\t= %d\n", ft_printf("|%020d|\t", 4325));
+	printf("result\t\t= %d\n", printf("|%015d|\t", -10500));
+	printf("ft_result\t= %d\n", ft_printf("|%015d|\t", -10500));
+	printf("result\t\t= %d\n", printf("|%020i|\t", -20945));
+	printf("ft_result\t= %d\n", ft_printf("|%020i|\t", -20945));
 	printf("================\n");
 }
