@@ -6,7 +6,7 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 14:17:24 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/08 15:53:06 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/08 16:02:27 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	calculate_values(t_parsed format_info, char *address_hex,
 		*field_len = format_info.precision;
 }
 
-static int	process_minusflag(t_parsed format_info,
+static void	process_minusflag(t_parsed format_info,
 			char *address_hex, int *num_printed)
 {
 	int				field_len;
@@ -34,10 +34,9 @@ static int	process_minusflag(t_parsed format_info,
 	ft_printstr_count(address_hex, num_printed);
 	while (format_info.width-- > field_len + 2)
 		ft_printchar_count(' ', num_printed);
-	return (0);
 }
 
-static int	process_zeroflag(t_parsed format_info,
+static void	process_zeroflag(t_parsed format_info,
 			char *address_hex, int *num_printed)
 {
 	int				field_len;
@@ -60,10 +59,9 @@ static int	process_zeroflag(t_parsed format_info,
 			ft_printchar_count('0', num_printed);
 		ft_printstr_count(address_hex, num_printed);
 	}
-	return (0);
 }
 
-static int	process_noflag(t_parsed format_info,
+static void	process_noflag(t_parsed format_info,
 			char *address_hex, int *num_printed)
 {
 	int				field_len;
@@ -76,7 +74,6 @@ static int	process_noflag(t_parsed format_info,
 	while (format_info.precision-- > address_len)
 		ft_printchar_count('0', num_printed);
 	ft_printstr_count(address_hex, num_printed);
-	return (0);
 }
 
 int			ft_p_type(t_parsed format_info, va_list *argptr,
