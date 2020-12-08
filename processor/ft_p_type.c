@@ -6,7 +6,7 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 14:17:24 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/08 15:33:47 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/08 15:53:06 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,11 @@ static void	calculate_values(t_parsed format_info, char *address_hex,
 }
 
 static int	process_minusflag(t_parsed format_info,
-			unsigned long pointer_to_print, int *num_printed)
+			char *address_hex, int *num_printed)
 {
-	char			*address_hex;
 	int				field_len;
 	int				address_len;
 
-	if (!(address_hex = ft_lutoa_base(pointer_to_print, "0123456789abcdef")))
-		return (-1);
 	calculate_values(format_info, address_hex, &field_len, &address_len);
 	ft_printstr_count("0x", num_printed);
 	while (format_info.precision-- > address_len)
@@ -41,14 +38,11 @@ static int	process_minusflag(t_parsed format_info,
 }
 
 static int	process_zeroflag(t_parsed format_info,
-			unsigned long pointer_to_print, int *num_printed)
+			char *address_hex, int *num_printed)
 {
-	char			*address_hex;
 	int				field_len;
 	int				address_len;
 
-	if (!(address_hex = ft_lutoa_base(pointer_to_print, "0123456789abcdef")))
-		return (-1);
 	calculate_values(format_info, address_hex, &field_len, &address_len);
 	if (format_info.width > field_len && format_info.precision == -1)
 	{
@@ -70,14 +64,11 @@ static int	process_zeroflag(t_parsed format_info,
 }
 
 static int	process_noflag(t_parsed format_info,
-			unsigned long pointer_to_print, int *num_printed)
+			char *address_hex, int *num_printed)
 {
-	char			*address_hex;
 	int				field_len;
 	int				address_len;
 
-	if (!(address_hex = ft_lutoa_base(pointer_to_print, "0123456789abcdef")))
-		return (-1);
 	calculate_values(format_info, address_hex, &field_len, &address_len);
 	while (format_info.width-- > field_len + 2)
 		ft_printchar_count(' ', num_printed);
@@ -92,12 +83,16 @@ int			ft_p_type(t_parsed format_info, va_list *argptr,
 			int *num_printed)
 {
 	unsigned long	pointer_to_print;
+	char			*address_hex;
 
 	pointer_to_print = (unsigned long)va_arg(*argptr, void*);
+	if (!(address_hex = ft_lutoa_base(pointer_to_print, "0123456789abcdef")))
+		return (-1);
 	if (format_info.flag == '-')
-		return (process_minusflag(format_info, pointer_to_print, num_printed));
+		process_minusflag(format_info, address_hex, num_printed);
 	else if (format_info.flag == '0')
-		return (process_zeroflag(format_info, pointer_to_print, num_printed));
+		process_zeroflag(format_info, address_hex, num_printed);
 	else
-		return (process_noflag(format_info, pointer_to_print, num_printed));
+		process_noflag(format_info, address_hex, num_printed);
+	return (0);
 }
