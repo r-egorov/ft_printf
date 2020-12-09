@@ -6,12 +6,11 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:16:48 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/09 15:30:45 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/09 16:34:23 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_processor.h"
-#include <stdio.h> //FIXME
 
 static void	calculate_values(t_parsed format_info, char *string_to_print,
 			int *field_len, int *string_len)
