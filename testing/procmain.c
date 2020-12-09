@@ -101,10 +101,10 @@ int		main(void)
 	printf("ft_result\t= %d\n", ft_printf("|%-010x|\t", 4325));
 	printf("result\t\t= %d\n", printf("|%0-10.20x|\t", 4325));
 	printf("ft_result\t= %d\n", ft_printf("|%0-10.20x|\t", 4325));
-	printf("================\n");*/
+	printf("================\n");
 	printf("TESTING INT (NO FLAG)\n");
-	printf("result\t\t= %d\n", printf("|%20.15d|\t", 4325));
-	printf("ft_result\t= %d\n", ft_printf("|%20.15d|\t", 4325));
+	printf("result\t\t= %d\n", printf("|this is the int = %20.15d tail after|\t", 4325));
+	printf("ft_result\t= %d\n", ft_printf("|this is the int = %20.15d tail after|\t", 4325));
 	printf("result\t\t= %d\n", printf("|%20.10d|\t", -10500));
 	printf("ft_result\t= %d\n", ft_printf("|%20.10d|\t", -10500));
 	printf("result\t\t= %d\n", printf("|%20i|\t", -20945));
@@ -125,5 +125,30 @@ int		main(void)
 	printf("ft_result\t= %d\n", ft_printf("|%015d|\t", -10500));
 	printf("result\t\t= %d\n", printf("|%020i|\t", -20945));
 	printf("ft_result\t= %d\n", ft_printf("|%020i|\t", -20945));
+	printf("================\n");*/
+	printf("TESTING UNSIGNED INT (NO FLAG)\n");
+	printf("result\t\t= %d\n", printf("|%20d|\t", 4325));
+	printf("ft_result\t= %d\n", ft_printf("|%20d|\t", 4325));
+	printf("result\t\t= %d\n", printf("|%5.15d|\t", 4325));
+	printf("ft_result\t= %d\n", ft_printf("|%5.15d|\t", 4325));
+	printf("result\t\t= %d\n", printf("|%30.20d|\t", 4325));
+	printf("ft_result\t= %d\n", ft_printf("|%30.20d|\t", 4325));
+	printf("+--------------+\n");
+	printf("TESTING UNSIGNED INT (MINUS FLAG)\n");
+	printf("result\t\t= %d\n", printf("|%-20d|\t", 4325));
+	printf("ft_result\t= %d\n", ft_printf("|%-20d|\t", 4325));
+	printf("result\t\t= %d\n", printf("|%-5.15d|\t", 4325));
+	printf("ft_result\t= %d\n", ft_printf("|%-5.15d|\t", 4325));
+	printf("result\t\t= %d\n", printf("|%-30.20d|\t", 4325));
+	printf("ft_result\t= %d\n", ft_printf("|%-30.20d|\t", 4325));
+	printf("+--------------+\n");
+	printf("TESTING UNSIGNED INT (ZERO FLAG)\n");
+	printf("result\t\t= %d\n", printf("|%020d|\t", 4325));
+	printf("ft_result\t= %d\n", ft_printf("|%020d|\t", 4325));
+	printf("result\t\t= %d\n", printf("|%05.15d|\t", 4325));
+	printf("ft_result\t= %d\n", ft_printf("|%05.15d|\t", 4325));
+	printf("result\t\t= %d\n", printf("|%030.20d|\t", 4325));
+	printf("ft_result\t= %d\n", ft_printf("|%030.20d|\t", 4325));
 	printf("================\n");
+
 }
