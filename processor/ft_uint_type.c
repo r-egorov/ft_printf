@@ -6,13 +6,13 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 17:14:27 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/09 10:33:33 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/09 10:51:14 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_processor.h"
 
-static void	calculate_values(t_parsed format_info, int nbr_to_print,
+static void	calculate_values(t_parsed format_info, unsigned int nbr_to_print,
 			int *field_len, int *nbrlen)
 {
 	*nbrlen = ft_nbrlen(nbr_to_print);
@@ -24,8 +24,8 @@ static void	calculate_values(t_parsed format_info, int nbr_to_print,
 static void	process_minusflag(t_parsed format_info, unsigned int nbr_to_print,
 			int *num_printed)
 {
-	int		field_len;
-	int		nbrlen;
+	int			field_len;
+	int			nbrlen;
 
 	calculate_values(format_info, nbr_to_print, &field_len, &nbrlen);
 	ft_printnbrprcsn_count((long)nbr_to_print, &format_info.precision,
@@ -44,8 +44,8 @@ static void	process_zeroflag(t_parsed format_info, unsigned int nbr_to_print,
 static void	process_noflag(t_parsed format_info, unsigned int nbr_to_print,
 			int *num_printed)
 {
-	int		field_len;
-	int		nbrlen;
+	int			field_len;
+	int			nbrlen;
 
 	calculate_values(format_info, nbr_to_print, &field_len, &nbrlen);
 	while (format_info.width-- > field_len)
