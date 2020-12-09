@@ -6,7 +6,7 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 14:17:24 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/08 16:02:27 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/09 15:20:42 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,14 @@ int			ft_p_type(t_parsed format_info, va_list *argptr,
 	char			*address_hex;
 
 	pointer_to_print = (unsigned long)va_arg(*argptr, void*);
-	if (!(address_hex = ft_lutoa_base(pointer_to_print, "0123456789abcdef")))
-		return (-1);
+	if (pointer_to_print == 0 && format_info.precision == 0)
+		address_hex = "";
+	else
+	{
+		if (!(address_hex = ft_lutoa_base(pointer_to_print,
+						"0123456789abcdef")))
+			return (-1);
+	}
 	if (format_info.flag == '-')
 		process_minusflag(format_info, address_hex, num_printed);
 	else if (format_info.flag == '0')

@@ -1,4 +1,5 @@
 NAME			=	libftprintf.a
+LIBFTNAME		=	libft.a
 
 INCLUDES		=	./includes/
 PARCERDIR		=	./parser/
@@ -36,17 +37,25 @@ CCFLAGS			=	-Wall -Wextra -Werror
 
 include	$(wildcard $(D_FILES))
 
+
+
+all:				$(NAME)
+
 lft:				
-					cd libft && make 
+					cd libft && make all && make clean && mv libft.a ../libftprintf.a
 
-partest:			$(OBJS)
-					gcc -o test $? testing/parmain.c -L./libft -lft -I $(INCLUDES)
+$(NAME):			$(OBJS)
+					make lft
+					ar rcs $(NAME) $?
 
-proctest:			$(OBJS)
-					gcc -o test $? testing/procmain.c -L./libft -lft -I $(INCLUDES)
+partest:			all
+					gcc -o test testing/parmain.c -L./ -lftprintf -I $(INCLUDES)
+
+proctest:			all
+					gcc -o test testing/procmain.c -L./ -lftprintf -I $(INCLUDES)
 
 clean:				
-					@ rm -f $(OBJS) $(D_FILES)
+					@ rm -f $(OBJS) $(D_FILES) $(LIBFTNAME)
 
 fclean:				clean
 					@ rm -f $(NAME) test
