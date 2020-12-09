@@ -6,7 +6,7 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 17:14:27 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/08 18:44:41 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/09 10:23:34 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,8 @@ static void	process_minusflag(t_parsed format_info, int nbr_to_print,
 static void	process_zeroflag(t_parsed format_info, int nbr_to_print,
 			int *num_printed)
 {
-	int		field_len;
-	int		nbrlen;
-
 	if (nbr_to_print < 0)
 		format_info.width -= 1;
-	calculate_values(format_info, nbr_to_print, &field_len, &nbrlen);
 	ft_printnbrprcsn_count((long)nbr_to_print, &format_info.width,
 							num_printed);
 }
