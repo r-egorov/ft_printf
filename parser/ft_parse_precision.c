@@ -6,7 +6,7 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 15:42:03 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/09 15:38:07 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/09 16:18:51 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ const char	*ft_parse_precision(const char *format,
 	{
 		precsn = va_arg(*argptr, int);
 		if (precsn < 0)
-			precsn = (*(format + 1) == 's') ? -1 : 0;
+			precsn = -1;
 		format++;
 	}
 	else if (*format >= '0' && *format <= '9')
