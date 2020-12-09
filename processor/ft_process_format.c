@@ -6,7 +6,7 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:04:21 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/09 10:28:43 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/09 11:09:25 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ int		ft_process_format(t_parsed format_info, va_list *argptr,
 		return (ft_hex_type(format_info, argptr, num_printed));
 	else if (format_info.type == 'X')
 		return (ft_hex_type(format_info, argptr, num_printed));
-	/*else if (format_info.type == '%')
-		return (ft_percent_type(format_info, argptr));
-	else
-		return (ft_unknown_type(format_info, argptr));*/
+	else if (format_info.type == '%')
+		ft_percent_type(format_info, num_printed);
 	return (0);
 }

@@ -17,6 +17,7 @@ PROCESSORSRCS	=	$(PROCESSORDIR)ft_char_type.c \
 					$(PROCESSORDIR)ft_hex_type.c \
 					$(PROCESSORDIR)ft_int_type.c \
 					$(PROCESSORDIR)ft_uint_type.c \
+					$(PROCESSORDIR)ft_percent_type.c \
 					$(PROCESSORDIR)ft_process_format.c \
 					$(PROCESSORDIR)ft_printed_count.c
 
