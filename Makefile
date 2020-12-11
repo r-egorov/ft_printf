@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: cisis <marvin@42.fr>                       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/12/09 16:35:10 by cisis             #+#    #+#              #
+#    Updated: 2020/12/09 17:09:26 by cisis            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME			=	libftprintf.a
 LIBFTNAME		=	libft.a
 
@@ -33,7 +45,7 @@ D_FILES			=	$(patsubst %.c,%.d,$(SRCS))
 CCFLAGS			=	-Wall -Wextra -Werror
 
 .c.o:				
-					gcc $(CCFLAGS) -c $< -I $(INCLUDES) -o $(<:.c=.o) -MD
+					@ gcc $(CCFLAGS) -c $< -I $(INCLUDES) -o $(<:.c=.o) -MD
 
 include	$(wildcard $(D_FILES))
 
@@ -42,24 +54,24 @@ include	$(wildcard $(D_FILES))
 all:				$(NAME)
 
 lft:				
-					cd libft && make all && make clean && mv libft.a ../libftprintf.a
+					@ echo "Compiling libft.a..."
+					@ cd libft && make all && make clean && mv libft.a ../libftprintf.a
+					@ echo "Compiling libft.a done."
 
 $(NAME):			$(OBJS)
-					make lft
-					ar rcs $(NAME) $?
-
-partest:			all
-					gcc -o test testing/parmain.c -L./ -lftprintf -I $(INCLUDES)
-
-proctest:			all
-					gcc -o test testing/procmain.c -L./ -lftprintf -I $(INCLUDES)
+					@ make lft
+					@ echo "Archiving into libftprintf.a..."
+					@ ar rcs $(NAME) $?
+					@ echo "Archiving into libftprintf.a done."
 
 clean:				
 					@ rm -f $(OBJS) $(D_FILES) $(LIBFTNAME)
+					@ echo "Cleaning done."
 
 fclean:				clean
 					@ rm -f $(NAME) test
+					@ echo "libftprintf.a deleted."
 
 re:					fclean all
 
-.PHONY:				all clean fclean re
+.PHONY:				all clean fclean re lft
