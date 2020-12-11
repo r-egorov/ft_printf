@@ -6,7 +6,7 @@
 /*   By: cisis <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 15:42:51 by cisis             #+#    #+#             */
-/*   Updated: 2020/12/09 14:40:01 by cisis            ###   ########.fr       */
+/*   Updated: 2020/12/11 13:15:18 by cisis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int			ft_hex_type(t_parsed format_info, va_list *argptr,
 		base = "0123456789ABCDEF";
 	nbr_to_print = va_arg(*argptr, unsigned int);
 	if (nbr_to_print == 0 && format_info.precision == 0)
-		str_nbr_hex = "";
+		str_nbr_hex = ft_strdup("");
 	else
 	{
 		if (!(str_nbr_hex = ft_lutoa_base((unsigned long)nbr_to_print, base)))
@@ -88,5 +88,6 @@ int			ft_hex_type(t_parsed format_info, va_list *argptr,
 		process_zeroflag(format_info, str_nbr_hex, num_printed);
 	else
 		process_noflag(format_info, str_nbr_hex, num_printed);
+	free(str_nbr_hex);
 	return (0);
 }
